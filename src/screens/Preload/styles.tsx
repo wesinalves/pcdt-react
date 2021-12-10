@@ -1,6 +1,4 @@
-import { useLinkProps } from '@react-navigation/native';
 import React from 'react';
-import { ImageBackgroundProps } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
