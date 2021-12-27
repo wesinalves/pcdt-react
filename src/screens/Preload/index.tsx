@@ -17,8 +17,13 @@ export default () => {
 
             if(token !== null){
                 // validate token
+                console.log('estou aqui')
+                navigation.reset({
+                    routes: [{name: 'MainTab'} as never]
+                });
             }else{
-                navigation.navigate("Login" as never);
+                navigation.navigate('Login' as never);
+                console.log('estou aqui')
             }
         }
         checkToken()
