@@ -16,11 +16,11 @@ import MainStack from './src/stacks/MainStack';
 
 const App = () => {
   return (
-    <UserContextProvider>
+    // <UserContextProvider>
       <NavigationContainer>
         <MainStack />      
       </NavigationContainer>
-    </UserContextProvider>
+    // </UserContextProvider>
     
   );
 }
