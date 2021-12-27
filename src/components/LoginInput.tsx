@@ -20,11 +20,14 @@ const Input = styled.TextInput`
 
 `;
 
-export default ({placeholder}: any) => {
+export default ({placeholder, value, onChangeText, password}: any) => {
     return (
         <InputArea>
             <Input 
                 placeholder={placeholder}
+                value={value}
+                onChangeText={onChangeText}
+                secureTextEntry={password}
             />
         </InputArea>
     )
