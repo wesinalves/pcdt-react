@@ -6,3 +6,9 @@ export const Container = styled.SafeAreaView`
    justify-content: center;  
 
 `;
+
+export const SectionTitle = styled.Text`
+   margin-left: 10px;
+   margin-top: 10px
+   font-size: 30px;
+`;

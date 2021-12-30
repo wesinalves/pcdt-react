@@ -1,6 +1,6 @@
 import React, { isValidElement, useEffect, useState } from "react";
-import { Container } from "../Topics/styles";
-import { SectionList, Text } from "react-native";
+import { Container, SectionTitle } from "../Topics/styles";
+import { ScrollView, Text } from "react-native";
 import TopicComponent from "../../components/TopicComponent";
 import Api from "../../Api";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -48,18 +48,26 @@ export default () => {
     }
     return (
         <Container>
-            {sections.length != 0 ? (
-                <>
-                    <Text>Continuar</Text>
-                    {sections.filter(section => countSectionProgress(section['modules']) > 0)
-                    .map((section, index) => <TopicComponent name={section['name']} 
-                        percent={countSectionProgress(section['modules'])} id={section['id']} key={index}/>
-                    )}
-                    
-                    <Text>Não Lida</Text>
-                </>
-            ) : <Text>Nenhum texto</Text>
-            }
+            <ScrollView>
+                {sections.length != 0 ? (
+                    <>
+                        <SectionTitle>Continuar</SectionTitle>
+                        {sections.filter(section => countSectionProgress(section['modules']) > 0)
+                        .map((section, index) => <TopicComponent name={section['name']} 
+                            percent={countSectionProgress(section['modules'])} id={section['id']} key={index}/>
+                        )}
+                        
+                        <SectionTitle>Não Lida</SectionTitle>
+                        {sections.filter(section => countSectionProgress(section['modules']) === 0)
+                        .map((section, index) => <TopicComponent name={section['name']} 
+                            percent={countSectionProgress(section['modules'])} id={section['id']} key={index}/>
+                        )}
+                    </>
+                ) : <Text>Nenhum texto</Text>
+                }
+
+            </ScrollView>
+            
         </Container>
     );
 }
